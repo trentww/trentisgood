@@ -1,0 +1,90 @@
+--Made By trent_#0002
+--Your A Gay Faggot If You Steal
+--Don't Be Gay
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local label = Instance.new("TextLabel")
+local ScriptON = Instance.new("TextButton")
+local ScriptOFF = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.196925327, 0, 0.121272363, 0)
+main.Size = UDim2.new(0, 150, 0, 62)
+main.Active = true
+main.Draggable = true
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+label.BorderSizePixel = 0
+label.Size = UDim2.new(0, 150, 0, 25)
+label.Font = Enum.Font.SourceSans
+label.Text = "Made By trent_#0002 your sexy btw"
+label.TextColor3 = Color3.fromRGB(500, 500, 500)
+label.TextSize = 12.000
+
+ScriptON.Name = "ScriptON"
+ScriptON.Parent = main
+ScriptON.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+ScriptON.BorderSizePixel = 0
+ScriptON.Position = UDim2.new(0, 0, 0.403225809, 0)
+ScriptON.Size = UDim2.new(0, 70, 0, 37)
+ScriptON.Font = Enum.Font.SourceSans
+ScriptON.Text = "Kill Aura ON"
+ScriptON.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScriptON.TextSize = 14.000
+ScriptON.MouseButton1Down:connect(function()
+	_G.IFailed = true
+
+	function ISuck()
+		while _G.IFailed == true do
+			for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+				if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 15 and v ~= game:GetService("Players").LocalPlayer then
+					local args = {
+						[1] = v.Character.HumanoidRootPart
+					}
+					game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+				end
+			end
+			wait()
+		end
+	end
+	ISuck()
+end)
+
+ScriptOFF.Name = "ScriptOFF"
+ScriptOFF.Parent = main
+ScriptOFF.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScriptOFF.BorderSizePixel = 0
+ScriptOFF.Position = UDim2.new(0.533333361, 0, 0.403225809, 0)
+ScriptOFF.Size = UDim2.new(0, 70, 0, 37)
+ScriptOFF.Font = Enum.Font.SourceSans
+ScriptOFF.Text = "Kill Aura OFF"
+ScriptOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScriptOFF.TextSize = 14.000
+ScriptOFF.MouseButton1Down:connect(function()
+	_G.IFailed = false
+
+	function ISuck()
+		while _G.IFailed == true do
+			for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+				if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 15 and v ~= game:GetService("Players").LocalPlayer then
+					local args = {
+						[1] = v.Character.HumanoidRootPart
+					}
+					game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+				end
+			end
+			wait()
+		end
+	end
+	ISuck()
+end)
