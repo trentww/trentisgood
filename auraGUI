@@ -1,5 +1,5 @@
---Made By trent_#0002
---Your A Gay Faggot If You Steal
+--Made By trent#0002
+--If You Steal You Are A Gay Faggot
 --Don't Be Gay
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -7,6 +7,8 @@ local main = Instance.new("Frame")
 local label = Instance.new("TextLabel")
 local ScriptON = Instance.new("TextButton")
 local ScriptOFF = Instance.new("TextButton")
+local PoliceON = Instance.new("TextButton")
+local PoliceOFF = Instance.new("TextButton")
 
 --Properties:
 
@@ -17,7 +19,7 @@ main.Parent = ScreenGui
 main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 main.BorderSizePixel = 0
 main.Position = UDim2.new(0.196925327, 0, 0.121272363, 0)
-main.Size = UDim2.new(0, 150, 0, 62)
+main.Size = UDim2.new(0, 150, 0, 93)
 main.Active = true
 main.Draggable = true
 
@@ -35,7 +37,7 @@ ScriptON.Name = "ScriptON"
 ScriptON.Parent = main
 ScriptON.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 ScriptON.BorderSizePixel = 0
-ScriptON.Position = UDim2.new(0, 0, 0.403225809, 0)
+ScriptON.Position = UDim2.new(0, 0, 0.227299884, 0)
 ScriptON.Size = UDim2.new(0, 70, 0, 37)
 ScriptON.Font = Enum.Font.SourceSans
 ScriptON.Text = "Kill Aura ON"
@@ -64,7 +66,7 @@ ScriptOFF.Name = "ScriptOFF"
 ScriptOFF.Parent = main
 ScriptOFF.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 ScriptOFF.BorderSizePixel = 0
-ScriptOFF.Position = UDim2.new(0.533333361, 0, 0.403225809, 0)
+ScriptOFF.Position = UDim2.new(0.533333361, 0, 0.227299884, 0)
 ScriptOFF.Size = UDim2.new(0, 70, 0, 37)
 ScriptOFF.Font = Enum.Font.SourceSans
 ScriptOFF.Text = "Kill Aura OFF"
@@ -87,4 +89,58 @@ ScriptOFF.MouseButton1Down:connect(function()
 		end
 	end
 	ISuck()
+end)
+
+PoliceON.Name = "PoliceON"
+PoliceON.Parent = main
+PoliceON.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+PoliceON.BorderSizePixel = 0
+PoliceON.Position = UDim2.new(0, 0, 0.69892472, 0)
+PoliceON.Size = UDim2.new(0, 70, 0, 28)
+PoliceON.Font = Enum.Font.SourceSans
+PoliceON.Text = "Police ON"
+PoliceON.TextColor3 = Color3.fromRGB(0, 0, 0)
+PoliceON.TextSize = 14.000
+PoliceON.MouseButton1Down:connect(function()
+	_G.autoPolice = true
+
+	function policemode()
+		while _G.autoPolice == true do 
+			wait(0.2)
+			local args = {[1] = "Red"}
+			game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+			wait(0.2)
+			local args = {[1] = "Navy"}
+			game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+			wait(0.2)
+			game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+		end
+	end
+end)
+
+PoliceOFF.Name = "PoliceOFF"
+PoliceOFF.Parent = main
+PoliceOFF.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+PoliceOFF.BorderSizePixel = 0
+PoliceOFF.Position = UDim2.new(0.533333361, 0, 0.69892472, 0)
+PoliceOFF.Size = UDim2.new(0, 70, 0, 28)
+PoliceOFF.Font = Enum.Font.SourceSans
+PoliceOFF.Text = "Police OFF"
+PoliceOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+PoliceOFF.TextSize = 14.000
+PoliceOFF.MouseButton1Down:connect(function()
+	_G.autoPolice = false
+
+	function policemode()
+		while _G.autoPolice == true do 
+			wait(0.2)
+			local args = {[1] = "Red"}
+			game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+			wait(0.2)
+			local args = {[1] = "Navy"}
+			game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+			wait(0.2)
+			game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+		end
+	end
 end)
