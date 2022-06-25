@@ -1,6 +1,7 @@
 --Made By trent#0002
---If You Steal You Are A Gay Faggot
---Don't Be Gay
+--Steal Anything And You Are Gay
+--Don't Be A Gay Kid
+--Credits to GabrielPro_771 For Police Mode
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
@@ -9,6 +10,12 @@ local ScriptON = Instance.new("TextButton")
 local ScriptOFF = Instance.new("TextButton")
 local PoliceON = Instance.new("TextButton")
 local PoliceOFF = Instance.new("TextButton")
+local Water = Instance.new("TextButton")
+local ChopTree = Instance.new("TextButton")
+local StopChop = Instance.new("TextButton")
+local Destroy = Instance.new("TextButton")
+local Minimize = Instance.new("TextButton")
+local OpenGUI = Instance.new("TextButton")
 
 --Properties:
 
@@ -19,9 +26,10 @@ main.Parent = ScreenGui
 main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 main.BorderSizePixel = 0
 main.Position = UDim2.new(0.196925327, 0, 0.121272363, 0)
-main.Size = UDim2.new(0, 150, 0, 93)
-main.Active = true
+main.Size = UDim2.new(0, 150, 0, 271)
+main.Visible = false
 main.Draggable = true
+main.Active = true
 
 label.Name = "label"
 label.Parent = main
@@ -37,7 +45,7 @@ ScriptON.Name = "ScriptON"
 ScriptON.Parent = main
 ScriptON.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 ScriptON.BorderSizePixel = 0
-ScriptON.Position = UDim2.new(0, 0, 0.227299884, 0)
+ScriptON.Position = UDim2.new(0, 0, 0.249440104, 0)
 ScriptON.Size = UDim2.new(0, 70, 0, 37)
 ScriptON.Font = Enum.Font.SourceSans
 ScriptON.Text = "Kill Aura ON"
@@ -66,7 +74,7 @@ ScriptOFF.Name = "ScriptOFF"
 ScriptOFF.Parent = main
 ScriptOFF.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 ScriptOFF.BorderSizePixel = 0
-ScriptOFF.Position = UDim2.new(0.533333361, 0, 0.227299884, 0)
+ScriptOFF.Position = UDim2.new(0.533333361, 0, 0.249440104, 0)
 ScriptOFF.Size = UDim2.new(0, 70, 0, 37)
 ScriptOFF.Font = Enum.Font.SourceSans
 ScriptOFF.Text = "Kill Aura OFF"
@@ -95,7 +103,7 @@ PoliceON.Name = "PoliceON"
 PoliceON.Parent = main
 PoliceON.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 PoliceON.BorderSizePixel = 0
-PoliceON.Position = UDim2.new(0, 0, 0.69892472, 0)
+PoliceON.Position = UDim2.new(0, 0, 0.413665026, 0)
 PoliceON.Size = UDim2.new(0, 70, 0, 28)
 PoliceON.Font = Enum.Font.SourceSans
 PoliceON.Text = "Police ON"
@@ -116,13 +124,14 @@ PoliceON.MouseButton1Down:connect(function()
 			game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
 		end
 	end
+	policemode()
 end)
 
 PoliceOFF.Name = "PoliceOFF"
 PoliceOFF.Parent = main
 PoliceOFF.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
 PoliceOFF.BorderSizePixel = 0
-PoliceOFF.Position = UDim2.new(0.533333361, 0, 0.69892472, 0)
+PoliceOFF.Position = UDim2.new(0.533333361, 0, 0.409975022, 0)
 PoliceOFF.Size = UDim2.new(0, 70, 0, 28)
 PoliceOFF.Font = Enum.Font.SourceSans
 PoliceOFF.Text = "Police OFF"
@@ -143,4 +152,97 @@ PoliceOFF.MouseButton1Down:connect(function()
 			game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
 		end
 	end
+	policemode()
+end)
+
+Water.Name = "Water"
+Water.Parent = main
+Water.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
+Water.BorderSizePixel = 0
+Water.Position = UDim2.new(0.0799999982, 0, 0.546037078, 0)
+Water.Size = UDim2.new(0, 125, 0, 23)
+Water.Font = Enum.Font.SourceSans
+Water.Text = "Free Water Walker"
+Water.TextColor3 = Color3.fromRGB(0, 0, 0)
+Water.TextSize = 14.000
+Water.MouseButton1Down:connect(function()
+	local Hum = game.Players.LocalPlayer.Character.Humanoid
+	getgenv().yes = 16
+	Hum.Changed:connect(function()
+		Hum.WalkSpeed = yes
+	end)
+end)
+
+ChopTree.Name = "ChopTree"
+ChopTree.Parent = main
+ChopTree.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+ChopTree.BorderSizePixel = 0
+ChopTree.Position = UDim2.new(0.0799999982, 0, 0.66051656, 0)
+ChopTree.Size = UDim2.new(0, 125, 0, 23)
+ChopTree.Font = Enum.Font.SourceSans
+ChopTree.Text = "Chop Ancient Tree"
+ChopTree.TextColor3 = Color3.fromRGB(0, 0, 0)
+ChopTree.TextSize = 14.000
+ChopTree.MouseButton1Down:connect(function()
+	_G.IfYouRunThisYouAreAIdiot = true
+
+	function dontbestupid()
+		while _G.IfYouRunThisYouAreAIdiot == true do
+			local args = {
+				[1] = {
+					[1] = workspace.Resources["Ancient Tree"].Reference,
+					[2] = workspace.Resources["Ancient Tree"].Trunk
+				}
+			}
+
+			game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+			wait()
+		end
+	end
+	dontbestupid()
+end)
+
+StopChop.Name = "StopChop"
+StopChop.Parent = main
+StopChop.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+StopChop.BorderSizePixel = 0
+StopChop.Position = UDim2.new(0.0799999982, 0, 0.767527759, 0)
+StopChop.Size = UDim2.new(0, 125, 0, 23)
+StopChop.Font = Enum.Font.SourceSans
+StopChop.Text = "Stop Chopping"
+StopChop.TextColor3 = Color3.fromRGB(0, 0, 0)
+StopChop.TextSize = 14.000
+StopChop.MouseButton1Down:connect(function()
+	_G.IfYouRunThisYouAreAIdiot = false
+
+	function dontbestupid()
+		while _G.IfYouRunThisYouAreAIdiot == true do
+			local args = {
+				[1] = {
+					[1] = workspace.Resources["Ancient Tree"].Reference,
+					[2] = workspace.Resources["Ancient Tree"].Trunk
+				}
+			}
+
+			game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+			wait()
+		end
+	end
+	dontbestupid()
+end)
+
+Destroy.Name = "Destroy"
+Destroy.Parent = main
+Destroy.BackgroundColor3 = Color3.fromRGB(255, 0, 127)
+Destroy.BorderSizePixel = 0
+Destroy.Position = UDim2.new(0, 0, 0.0922509283, 0)
+Destroy.Size = UDim2.new(0, 150, 0, 15)
+Destroy.Font = Enum.Font.SourceSans
+Destroy.Text = "DESTROY GUI"
+Destroy.TextColor3 = Color3.fromRGB(0, 0, 0)
+Destroy.TextSize = 14.000
+Destroy.MouseButton1Down:connect(function()
+	game:GetService("CoreGui").ScreenGui:Destroy()
 end)
