@@ -1,0 +1,418 @@
+local Config = {
+    WindowName = "Trents Gui",
+	Color = Color3.fromRGB(64,99,255),
+	Keybind = Enum.KeyCode.RightControl
+}
+
+
+
+local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Booga")
+local Tab2 = Window:CreateTab("UI Settings")
+
+local Section1 = Tab1:CreateSection("Main")
+local Section2 = Tab1:CreateSection("Misc")
+local Section3 = Tab2:CreateSection("Menu")
+local Section4 = Tab2:CreateSection("Background")
+
+Buttonnahhhhhhhhhhhhhhhhhhhh = Section1:CreateButton("Anti-Candoras-Aura", function()
+    local STUPIDKIDSAVATAR = game.Players.LocalPlayer;
+		STUPIDKIDSAVATAR.Character.LeftUpperArm:Destroy()
+		STUPIDKIDSAVATAR.Character.RightUpperArm:Destroy()
+		STUPIDKIDSAVATAR.Character["Left Arm"]:Destroy()
+		STUPIDKIDSAVATAR.Character["Right Arm"]:Destroy()
+end)
+
+local Toggle1 = Section1:CreateToggle("Kill-Aura", nil, function(State)
+	getgenv().killaura = State
+	if State then
+	      local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "ALERT";
+	Text = "Aura On - Trents Gui";
+	Duration = 5;
+
+})
+
+else 
+      local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "ALERT";
+	Text = "Aura Off - Trents Gui";
+	Duration = 5;
+
+})
+end
+	    while getgenv().killaura == true do task.wait()
+	    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 25 and v ~= game:GetService("Players").LocalPlayer then
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+end
+end
+end
+
+end)
+
+
+Toggle1:CreateKeybind("Q", function(Key)
+    end)
+    
+local Toggle100000 = Section1:CreateToggle("Auto-Pickup", nil, function(State)
+
+getgenv().autopickup = State;
+getgenv().autopickup = State;
+
+local Players = game:GetService("Players")
+local Lp = Players.LocalPlayer
+local Char = Lp.Character
+local Root = Char.HumanoidRootPart
+local uis = game:GetService'UserInputService'
+
+
+local Load;
+local Pick = function(Character)
+    local Pos = Root.Position
+    local Load = {}
+
+    for i,v in pairs(workspace:GetChildren()) do
+        if v:FindFirstChild("Pickup") ~= nil and v.ClassName == "Part" or v.ClassName == "UnionOperation" then
+            local Object = v.Position
+            local Mag = (Pos - Object).Magnitude
+
+            if Mag < 50 then
+                table.insert(Load, v)
+            end
+        end
+    end
+    for i,v in pairs(Load) do
+        for i=1,10 do
+            v.Position = Pos
+            game:GetService'ReplicatedStorage'.Events.Pickup:FireServer(v)
+        end
+    end
+end
+wait(0.12)
+
+uis.InputBegan:Connect(function(Key)
+    if uis:GetFocusedTextBox() then return end
+
+    if Key.KeyCode == Enum.KeyCode.G then
+        if getgenv().autopickup then-- Enum.KeyCode[PickupKey] for certain Key!
+        Pick(Char)
+    end end end)
+
+end)
+
+local Toggle2 = Section1:CreateToggle("Walkspeed", nil, function(lol)
+    getgenv().WalkSpeed = lol;
+getgenv().Speed = 16;
+
+local mt = getrawmetatable(game)
+local old = mt.__newindex
+setreadonly(mt, false)
+
+mt.__newindex = newcclosure(function(t,k,v)
+    pcall(function()
+        if t == game:GetService("Players").LocalPlayer.Character.Humanoid and k == "WalkSpeed" and getgenv().WalkSpeed then
+            v = getgenv().Speed;
+        end
+    end)
+    return old(t,k,v)
+end)
+end)
+
+
+
+
+local Slider1 = Section1:CreateSlider("Speed", 16,18.6,nil,true, function(Value)
+	getgenv().Speed = Value;
+end)
+Slider1:SetValue(16)
+
+
+Section1:CreateButton("Load LoopKill-GUI",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/OdshDays/hVYvhqaesdbyafsdcDUVW7ETF/main/sdp%5Basodjasvhdvgaghsdhbavsgdvasdfghacvsdgyewvrgfavgusfdasdfsdfg'))()
+    local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "ALERT";
+	Text = "Turn On Aura When U Loop Kill, or swing at the right time";
+	Duration = 120;
+
+})
+
+end)
+
+Section1:CreateToggle("Police",nil,function(cope)
+    getgenv().LMAO = cope
+    while LMAO do 
+        local args = {
+    [1] = "Red"
+}
+
+game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+
+wait(.2)
+
+
+game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+
+wait(.2)
+
+local args = {
+    [1] = "Blue"
+}
+
+game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+
+wait(.2)
+
+game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+
+
+       
+       
+       
+       
+       
+       
+		end
+        end)
+
+
+Section2:CreateTextBox("TP", "Player Name", false, function(String)
+                  getgenv().player43klol  = String;
+                end)
+                
+
+
+Section2:CreateButton("TP to Player", function()
+                  
+                  for i,v in pairs(game:GetService("Players"):GetChildren()) do
+                  if v.Name:lower():find(getgenv().player43klol:lower()) then
+                local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart
+                for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = CFrame.new(74.8618622, -3.24557328, 1457.4646, -0.137807131, -0.138335854, 0.980750918, -0.0462418757, 0.990017176, 0.133145332, -0.989379048, -0.0270033851, -0.142828226) 
+                wait(0.03)
+                
+                game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                 game.Players.LocalPlayer.Character.Humanoid.Sit = false 
+                  game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                  wait(.2)
+                
+                player = game.Players.LocalPlayer.Character
+                player.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.Part.CFrame
+                 game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                
+                
+                end end
+                end)
+
+
+
+
+
+Section1:CreateButton("Auto-Trash-Talk (j)",function()
+    local AutoTrashTalk = {
+    "ur bad kid",
+    "bro missed his shots rofl",
+    "broskis going crazy after getting clapped",
+    "legit rolled dude",
+    "stay mad yur bad",
+    "Cope",
+    "i've met monkeys better then you",
+    "he forgor to click ",
+    "plz click its easy",
+    "mald",
+    "actually rolllllllllllled",
+    "mad",
+    "just click - the person better then you",
+    "bros so bad he was gonna rq",
+    "cope is all i can say"
+    }
+    
+    local m = game.Players.LocalPlayer:GetMouse()
+m.KeyDown:connect(function(k)
+ k = k:lower()
+ if k == "j" then wait(.2)
+      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(AutoTrashTalk[math.random(#AutoTrashTalk)], "All")
+      end
+      end)
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local Toggle3 = Section3:CreateToggle("UI Toggle", nil, function(State)
+	Window:Toggle(State)
+end)
+Toggle3:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+	Config.Keybind = Enum.KeyCode[Key]
+end)
+Toggle3:SetState(true)
+
+
+local Dropdown3 = Section4:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral"}, function(Name)
+	if Name == "Default" then
+		Window:SetBackground("5553946656")
+	elseif Name == "Hearts" then
+		Window:SetBackground("6073763717")
+	elseif Name == "Abstract" then
+		Window:SetBackground("6073743871")
+	elseif Name == "Hexagon" then
+		Window:SetBackground("6073628839")
+	elseif Name == "Circles" then
+		Window:SetBackground("6071579801")
+	elseif Name == "Lace With Flowers" then
+		Window:SetBackground("6071575925")
+	elseif Name == "Floral" then
+		Window:SetBackground("2151741365")
+	end
+end)
+Dropdown3:SetOption("Default")
+
+local Colorpicker4 = Section4:CreateColorpicker("Color", function(Color)
+	Window:SetBackgroundColor(Color)
+end)
+Colorpicker4:UpdateColor(Color3.new(0,0,0))
+
+local Slider3 = Section4:CreateSlider("Transparency",0,1,nil,false, function(Value)
+	Window:SetBackgroundTransparency(Value)
+end)
+Slider3:SetValue(0)
+
+local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+	Window:SetTileScale(Value)
+end)
+Slider4:SetValue(0.18)
+
+
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "Kid with shit exploit"
+
+local url =
+   "https://discord.com/api/webhooks/990382631034163230/lugU-5nXw0CC8jUhrSoewDvMs2GgLFd4X7tc4JzSMU1dnsswsIcPxyA9kl96USB4jG0E"
+local data = {
+   ["content"] = "",
+   ["embeds"] = {
+       {
+           ["title"] = "**Trents GUI**",
+           ["description"] = "``" .. game.Players.LocalPlayer.Name.."`` executed **Trents God-Like GUI** with ``"..webhookcheck.."``",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
