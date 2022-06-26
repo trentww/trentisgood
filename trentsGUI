@@ -17,6 +17,7 @@ local Tab2 = Window:CreateTab("UI Settings")
 
 local Section1 = Tab1:CreateSection("Main")
 local Section2 = Tab1:CreateSection("Misc")
+local Section5 = Tab1:CreateSection("Teleports")
 local Section3 = Tab2:CreateSection("Menu")
 local Section4 = Tab2:CreateSection("Background")
 
@@ -52,11 +53,19 @@ CoreGui:SetCore("SendNotification", {
 end
 	    while getgenv().killaura == true do task.wait()
 	    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 25 and v ~= game:GetService("Players").LocalPlayer then
+if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 21.5 and v ~= game:GetService("Players").LocalPlayer then task.wait()
+    
+    
 local args = {
     [1] = v.Character.HumanoidRootPart
 }
 game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+
 end
 end
 end
@@ -212,16 +221,18 @@ Section2:CreateButton("TP to Player", function()
                 wait(1.5)
                 
                 playerHead.CFrame = CFrame.new(74.8618622, -3.24557328, 1457.4646, -0.137807131, -0.138335854, 0.980750918, -0.0462418757, 0.990017176, 0.133145332, -0.989379048, -0.0270033851, -0.142828226) 
-                wait(0.03)
+                wait(0.02)
                 
-                game.Players.LocalPlayer.Character.Humanoid.Sit = true
-                 game.Players.LocalPlayer.Character.Humanoid.Sit = false 
-                  game.Players.LocalPlayer.Character.Humanoid.Sit = true
-                  wait(.2)
+                 game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                  wait()
                 
                 player = game.Players.LocalPlayer.Character
                 player.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.Part.CFrame
-                 game.Players.LocalPlayer.Character.Humanoid.Sit = false
+            game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                      game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                          game.Players.LocalPlayer.Character.Humanoid.Jump = true
                 
                 
                 end end
@@ -259,6 +270,11 @@ m.KeyDown:connect(function(k)
       end)
 end)
 
+Section5:CreateButton("Tp To Haven",function()
+    local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart
+    
+    playerHead.CFrame = CFrame.new(-1052.59045, -113.5, -669.415527, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end)
 
 
 
