@@ -1,0 +1,73 @@
+--Official Loader For TrentHub Version 1 & 2!
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local trentone = Instance.new("ImageButton")
+local trenttwo = Instance.new("ImageButton")
+local TextBox = Instance.new("TextBox")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.239385068, 0, 0.288270384, 0)
+main.Size = UDim2.new(0, 174, 0, 251)
+main.Active = true
+main.Draggable = true
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 174, 0, 44)
+TextLabel.Font = Enum.Font.Code
+TextLabel.Text = "TRENTHUB OFFICIAL LOADER"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+trentone.Name = "trentone"
+trentone.Parent = main
+trentone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+trentone.BorderSizePixel = 0
+trentone.Position = UDim2.new(0, 0, 0.17529881, 0)
+trentone.Size = UDim2.new(0, 87, 0, 102)
+trentone.Image = "http://www.roblox.com/asset/?id=10046891893"
+trentone.MouseButton1Down:connect(function()
+	game:GetService("CoreGui").ScreenGui:Destroy()
+	
+	
+	wait(1)
+	
+	
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/trentww/trentisgood/main/trentsGUI"))()
+end)
+
+trenttwo.Name = "trenttwo"
+trenttwo.Parent = main
+trenttwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+trenttwo.BorderSizePixel = 0
+trenttwo.Position = UDim2.new(0.498866767, 0, 0.17529881, 0)
+trenttwo.Size = UDim2.new(0, 87, 0, 102)
+trenttwo.Image = "http://www.roblox.com/asset/?id=10046864945"
+trenttwo.MouseButton1Down:connect(function()
+	game:GetService("CoreGui").ScreenGui:Destroy()
+	
+	
+	wait(1)
+	
+	
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/trentww/trentisgood/main/trenthubv2"))()
+end)
+
+TextBox.Parent = main
+TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(-0.00574712642, 0, 0.725099623, 0)
+TextBox.Size = UDim2.new(0, 174, 0, 40)
+TextBox.Font = Enum.Font.Code
+TextBox.Text = "CHOOSE PREFERRED VERSION"
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14.000
