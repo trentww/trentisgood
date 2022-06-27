@@ -1,0 +1,169 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("TrentHub", "Sentinel")
+
+    --main
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Combat")
+
+
+    MainSection:NewToggle("Kill Aura", "Hits other players around you automatically.", function(state)
+        if state then
+            _G.IFailed = true
+
+function ISuck()
+while _G.IFailed == true do
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 21.5 and v ~= game:GetService("Players").LocalPlayer then
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+end
+end
+wait()
+end
+end
+ISuck()
+        else
+            _G.IFailed = false
+
+function ISuck()
+while _G.IFailed == true do
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 15 and v ~= game:GetService("Players").LocalPlayer then
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+end
+end
+wait()
+end
+end
+ISuck()
+        end
+    end)
+
+
+    MainSection:NewButton("Anti-Candorada's Aura", "Prevents being attacked by Candorada's Aura.", function()
+        local STUPIDKIDSAVATAR = game.Players.LocalPlayer;
+		STUPIDKIDSAVATAR.Character.LeftUpperArm:Destroy()
+		STUPIDKIDSAVATAR.Character.RightUpperArm:Destroy()
+		STUPIDKIDSAVATAR.Character["Left Arm"]:Destroy()
+		STUPIDKIDSAVATAR.Character["Right Arm"]:Destroy()
+    end)
+
+
+    MainSection:NewSlider("Walkspeed", "Makes you faster than the average player.", 18, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        local Hum = game.Players.LocalPlayer.Character.Humanoid
+getgenv().yes = 18
+Hum.Changed:connect(function()
+Hum.WalkSpeed = yes
+end)
+    end)
+
+
+    MainSection:NewButton("LoopKill GUI", "LoopKills the desired player. Made by Vamp#8872", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/OdshDays/hVYvhqaesdbyafsdcDUVW7ETF/main/sdp%5Basodjasvhdvgaghsdhbavsgdvasdfghacvsdgyewvrgfavgusfdasdfsdfg'))()
+        wait(0.2)
+game.StarterGui:SetCore("SendNotification", {
+Title = "Loop Kill GUI"; 
+Text = "Made By Vamp#8872, Use Aura While Enabled"; 
+Duration = 15; 
+})
+    end)
+
+
+    local Main = Window:NewTab("Misc")
+    local MiscSection = Main:NewSection("Teleports")
+
+
+    MiscSection:NewButton("Teleport To Haven", "Teleports you to haven.", function()
+        local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+        for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+            if v.Name == "TouchInterest" and v.Parent then 
+                firetouchinterest(playerHead, v.Parent, 0)
+                wait(0.1)
+                firetouchinterest(playerHead, v.Parent, 1)
+                break;
+            end
+        end
+    end)
+
+
+    local MiscSection = Main:NewSection("Fun")
+
+
+    MiscSection:NewToggle("Police Mode", "Switches between red and blue tribe with 0.2 delay to make you look like a police.", function(state)
+        if state then
+            _G.autoPolice = true
+
+            function policemode()
+                while _G.autoPolice == true do 
+                    wait(0.2)
+                    local args = {[1] = "Red"}
+                    game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+                    wait(0.2)
+                    local args = {[1] = "Navy"}
+                    game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+                    wait(0.2)
+                    game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+                end
+            end
+            policemode()
+        else
+            _G.autoPolice = false
+
+            function policemode()
+                while _G.autoPolice == true do 
+                    wait(0.2)
+                    local args = {[1] = "Red"}
+                    game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+                    wait(0.2)
+                    local args = {[1] = "Navy"}
+                    game:GetService("ReplicatedStorage").Events.FoundTribe:FireServer(unpack(args))
+                    wait(0.2)
+                    game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
+                end
+            end
+            policemode()
+        end
+    end)
+
+
+    MiscSection:NewButton("Trash Talk [J]", "Automatically trashtalks whenever pressed.", function()
+        local AutoTrashTalk = {
+            "ur bad kid",
+            "bro missed his shots rofl",
+            "broskis going crazy after getting clapped",
+            "legit rolled dude",
+            "stay mad yur bad",
+            "Cope",
+            "i've met monkeys better then you",
+            "he forgor to click ",
+            "plz click its easy",
+            "mald",
+            "actually rolllllllllllled",
+            "mad",
+            "just click - the person better then you",
+            "bros so bad he was gonna rq",
+            "cope is all i can say"
+            }
+            
+            local m = game.Players.LocalPlayer:GetMouse()
+        m.KeyDown:connect(function(k)
+         k = k:lower()
+         if k == "j" then wait(.2)
+              game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(AutoTrashTalk[math.random(#AutoTrashTalk)], "All")
+              end
+              end)
+    end)
+
+
+    local Credit = Window:NewTab("Credits")
+    local CreditSection = Credit:NewSection("Credits")
+
+  
+    CreditSection:NewLabel("Loopkill made by Vamp#8872")
+    CreditSection:NewLabel("Haven TP made by Vamp#8872")
+    CreditSection:NewLabel("Walkspeed made by Vamp#8872")
