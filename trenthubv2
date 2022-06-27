@@ -46,11 +46,11 @@ ISuck()
 
 
     MainSection:NewButton("Anti-Candorada's Aura", "Prevents being attacked by Candorada's Aura.", function()
-        local STUPIDKIDSAVATAR = game.Players.LocalPlayer;
-		STUPIDKIDSAVATAR.Character.LeftUpperArm:Destroy()
-		STUPIDKIDSAVATAR.Character.RightUpperArm:Destroy()
-		STUPIDKIDSAVATAR.Character["Left Arm"]:Destroy()
-		STUPIDKIDSAVATAR.Character["Right Arm"]:Destroy()
+        local cum = game.Players.LocalPlayer;
+		cum.Character.LeftUpperArm:Destroy()
+		cum.Character.RightUpperArm:Destroy()
+		cum.Character["Left Arm"]:Destroy()
+		cum.Character["Right Arm"]:Destroy()
     end)
 
 
@@ -167,3 +167,12 @@ Duration = 15;
     CreditSection:NewLabel("Loopkill made by Vamp#8872")
     CreditSection:NewLabel("Haven TP made by Vamp#8872")
     CreditSection:NewLabel("Walkspeed made by Vamp#8872")
+
+
+    local Settings = Window:NewTab("Settings")
+    local SettingsSection = Settings:NewSection("Settings")
+
+
+    SettingsSection:NewKeybind("Toggle GUI", "Hides and unhides the GUI whenever hotkey pressed.", Enum.KeyCode.B, function()
+	Library:ToggleUI()
+end)
