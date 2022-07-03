@@ -1,0 +1,11 @@
+   _G.IfYouRunThisYouAreAIdiot = true
+
+    while _G.IfYouRunThisYouAreAIdiot == true do
+local args = {
+    [1] = {
+        [1] = workspace.Resources["Ancient Tree"].Reference,
+        [2] = workspace.Resources["Ancient Tree"].Trunk
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
