@@ -1,5 +1,6 @@
-   _G.IfYouRunThisYouAreAIdiot = true
+_G.IfYouRunThisYouAreAIdiot = true
 
+function dontbestupid()
     while _G.IfYouRunThisYouAreAIdiot == true do
 local args = {
     [1] = {
@@ -9,4 +10,8 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
 end
+dontbestupid()
