@@ -9,3 +9,4 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+end
