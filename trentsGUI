@@ -1,6 +1,6 @@
 local Config = {
-    WindowName = "Trents Gui",
-	Color = Color3.fromRGB(64,99,255),
+    WindowName = "TrentHub",
+	Color = Color3.fromRGB(154,203,255),
 	Keybind = Enum.KeyCode.RightControl
 }
 
@@ -196,7 +196,49 @@ game:GetService("ReplicatedStorage").Events.LeaveTribe:FireServer()
        
        
 		end
-        end)
+end)
+
+  local Toggle8 = Section2:CreateToggle("Alt Delete", nil, function(State)
+                  getgenv().altdel = State;
+                local Plr = game:GetService("Players").LocalPlayer
+                local Mouse = Plr:GetMouse()
+                
+                Mouse.Button1Down:connect(function()
+                if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftAlt) then return end
+                if not Mouse.Target then return end if altdel then Mouse.Target:Destroy() end
+                end)
+                end)
+
+ local Colorpicker1 = Section2:CreateColorpicker("Ambient", function(Color)
+                  if getgenv().ambienttg then
+                  game:GetService("Lighting").ColorCorrection.TintColor = Color
+                  else
+                      
+                  game:GetService("Lighting").ColorCorrection.TintColor = Color3.fromRGB(255, 255, 255)
+                  end
+                getgenv().lol13 = Color;
+                end)
+                
+                local Toggle5 = Section2:CreateToggle("Ambient Toggle", nil, function(State)
+                  getgenv().ambienttg = State;
+                  if getgenv().ambienttg then
+                     game:GetService("Lighting").ColorCorrection.TintColor = getgenv().lol13
+                      else game:GetService("Lighting").ColorCorrection.TintColor = Color3.fromRGB(255, 255, 255) end
+                end)
+    
+     local Button100 = Section2:CreateButton("God Set", function()
+                local eventc = game:GetService("ReplicatedStorage").Events.CraftItem;
+                local eventu = game:GetService("ReplicatedStorage").Events.UseBagItem;
+                eventc:FireServer("God Halo")
+                eventc:FireServer("God Chestplate")
+                eventc:FireServer("God Legs")
+                eventc:FireServer("God Rock")
+                wait(0.06)
+                eventu:FireServer("God Halo")
+                eventu:FireServer("God Chestplate")
+                eventu:FireServer("God Legs")
+                
+                end)
 
 
 Section2:CreateTextBox("TP", "Player Name", false, function(String)
@@ -275,6 +317,47 @@ Section5:CreateButton("Tp To Haven",function()
     
     playerHead.CFrame = CFrame.new(-1052.59045, -113.5, -669.415527, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end)
+
+Section5:CreateButton("Tp To Sun Island",function()
+local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = CFrame.new(-765.80188, 310.448242, -1193.0903)
+end)
+
+Section5:CreateButton("Tp To Old God",function()
+local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = game:GetService("Workspace").Resources["Old God"].Eyes.CFrame 
+                if mob3 == "Haven" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end end
+end)
+
+
 
 
 
@@ -408,13 +491,13 @@ local webhookcheck =
    "Kid with shit exploit"
 
 local url =
-   "https://discord.com/api/webhooks/990382631034163230/lugU-5nXw0CC8jUhrSoewDvMs2GgLFd4X7tc4JzSMU1dnsswsIcPxyA9kl96USB4jG0E"
+   "https://discord.com/api/webhooks/990769593163317278/GGM-j4qTZyHZz9dqYOxZ_Av4vgN711OexWC90N2tgjfo3CtWzcAQOzpMu821qHA4zpda"
 local data = {
    ["content"] = "",
    ["embeds"] = {
        {
-           ["title"] = "**Trents GUI**",
-           ["description"] = "``" .. game.Players.LocalPlayer.Name.."`` executed **Trents God-Like GUI** with ``"..webhookcheck.."``",
+           ["title"] = "**TrentHub**",
+           ["description"] = "``" .. game.Players.LocalPlayer.Name.."`` executed **TrentHub** with ``"..webhookcheck.."``",
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
            ["image"] = {
