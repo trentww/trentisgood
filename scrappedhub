@@ -1,0 +1,289 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "TrentHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Combat"
+})
+
+OrionLib:MakeNotification({
+	Name = "TrentHub!",
+	Content = "Thanks For Using TrentHub!   😩",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+Tab:AddBind({
+	Name = "Kill Aura (Hold Bind To Aura)",
+	Default = Enum.KeyCode.Q,
+	Hold = false,
+	Callback = function (State)
+		getgenv().killaura = State
+	if State then
+	      
+	    while getgenv().killaura == true do task.wait()
+	    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude < 21.5 and v ~= game:GetService("Players").LocalPlayer then task.wait()
+    
+    
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+
+local args = {
+    [1] = v.Character.HumanoidRootPart
+}
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(args)
+
+end
+end
+end
+
+end
+end})
+
+Tab:AddButton({
+	Name = "Kill Gui",
+	Callback = function()
+      		 loadstring(game:HttpGet('https://raw.githubusercontent.com/OdshDays/hVYvhqaesdbyafsdcDUVW7ETF/main/sdp%5Basodjasvhdvgaghsdhbavsgdvasdfghacvsdgyewvrgfavgusfdasdfsdfg'))()
+        wait(0.2)
+game.StarterGui:SetCore("SendNotification", {
+Title = "Kill GUI"; 
+Text = "Use Aura While Enabled"; 
+Duration = 15; 
+})
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Anti-Candoradas-Aura",
+	Callback = function()
+        local cum = game.Players.LocalPlayer;
+		cum.Character.LeftUpperArm:Destroy()
+		cum.Character.RightUpperArm:Destroy()
+		cum.Character["Left Arm"]:Destroy()
+		cum.Character["Right Arm"]:Destroy()
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Misc"
+})
+
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 18.5,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Walkspeed",
+	Callback = function(Value)
+local Hum = game.Players.LocalPlayer.Character.Humanoid
+getgenv().yes = 18
+Hum.Changed:connect(function()
+Hum.WalkSpeed = yes
+end)
+	end    
+})
+
+Tab:AddButton({
+	Name = "Auto-Pickup [G]",
+	Callback = function(State)
+ getgenv().autopickup = State;
+                
+                local Players = game:GetService("Players")
+                local Lp = Players.LocalPlayer
+                local Char = Lp.Character
+                local Root = Char.HumanoidRootPart
+                local uis = game:GetService'UserInputService'
+                
+                
+                local Load;
+                local Pick = function(Character)
+                  local Pos = Root.Position
+                  local Load = {}
+                
+                  for i,v in pairs(workspace:GetChildren()) do
+                      if v:FindFirstChild("Pickup") ~= nil and v.ClassName == "Part" or v.ClassName == "UnionOperation" then
+                          local Object = v.Position
+                          local Mag = (Pos - Object).Magnitude
+                
+                          if Mag < 50 then
+                              table.insert(Load, v)
+                          end
+                      end
+                  end
+                  for i,v in pairs(Load) do
+                      for i=1,10 do
+                          v.Position = Pos
+                          game:GetService'ReplicatedStorage'.Events.Pickup:FireServer(v)
+                      end
+                  end
+                end
+                wait(0.12)
+                
+                uis.InputBegan:Connect(function(Key)
+                  if uis:GetFocusedTextBox() then return end
+                
+                  if Key.KeyCode == Enum.KeyCode.G then
+                      if getgenv().autopickup then-- Enum.KeyCode[PickupKey] for certain Key!
+                      Pick(Char)
+                      end end end)
+              end
+})
+
+Tab:AddButton({
+	Name = "Craft God Rock & Armor",
+	Callback = function()
+                local eventc = game:GetService("ReplicatedStorage").Events.CraftItem;
+                local eventu = game:GetService("ReplicatedStorage").Events.UseBagItem;
+                eventc:FireServer("God Halo")
+                eventc:FireServer("God Chestplate")
+                eventc:FireServer("God Legs")
+                eventc:FireServer("God Rock")
+                wait(0.06)
+                eventu:FireServer("God Halo")
+                eventu:FireServer("God Chestplate")
+                eventu:FireServer("God Legs")
+  	end    
+})
+
+Tab:AddTextbox({
+	Name = "Player TP",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(String)
+                  getgenv().player43klol  = String;
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Teleport",
+	Callback = function()
+      		for i,v in pairs(game:GetService("Players"):GetChildren()) do
+                  if v.Name:lower():find(getgenv().player43klol:lower()) then
+                local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart
+                for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = CFrame.new(74.8618622, -3.24557328, 1457.4646, -0.137807131, -0.138335854, 0.980750918, -0.0462418757, 0.990017176, 0.133145332, -0.989379048, -0.0270033851, -0.142828226) 
+                wait(0.02)
+                
+                 game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                  wait()
+                
+                player = game.Players.LocalPlayer.Character
+                player.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.Part.CFrame
+            game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                      game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                          game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                
+                
+                end end
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Auto-Trash-Talk",
+	Callback = function()
+local AutoTrashTalk = {
+    "ur bad kid",
+    "bro missed his shots rofl",
+    "broskis going crazy after getting clapped",
+    "legit rolled dude",
+    "stay mad yur bad",
+    "Cope",
+    "i've met monkeys better then you",
+    "he forgor to click ",
+    "plz click its easy",
+    "mald",
+    "actually rolllllllllllled",
+    "mad",
+    "just click - the person better then you",
+    "bros so bad he was gonna rq",
+    "cope is all i can say"
+    }
+    
+    local m = game.Players.LocalPlayer:GetMouse()
+m.KeyDown:connect(function(k)
+ k = k:lower()
+ if k == "j" then wait(.2)
+      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(AutoTrashTalk[math.random(#AutoTrashTalk)], "All")
+      end
+      end)
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Teleports",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Teleports"
+})
+
+Tab:AddDropdown({
+	Name = "Teleports",
+	Default = "1",
+	Options = {"Sun Island", "Old God", "Haven"},
+	Callback = function(mob3)
+                  if mob3 == "Sun Island" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = CFrame.new(-765.80188, 310.448242, -1193.0903) end
+                if mob3 == "Old God" then   local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = game:GetService("Workspace").Resources["Old God"].Eyes.CFrame end
+                if mob3 == "Haven" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end end
+	end    
+})
+
+OrionLib:Init()
