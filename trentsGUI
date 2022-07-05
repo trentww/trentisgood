@@ -208,6 +208,10 @@ end)
                 if not Mouse.Target then return end if altdel then Mouse.Target:Destroy() end
                 end)
                 end)
+		
+		local Button424 = Section2:CreateButton("AutoFarm Gui", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/trentww/trentisgood/main/essenceGUI', true))()
+end)
 
  local Colorpicker1 = Section2:CreateColorpicker("Ambient", function(Color)
                   if getgenv().ambienttg then
