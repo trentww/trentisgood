@@ -1,14 +1,19 @@
-
+game.StarterGui:SetCore("SendNotification", {
+                        Title = "Essence GUI";
+                        Text = "Default Keybind Is 'B' ";
+                        Duration = "60";
+                        })
 local Config = {
 WindowName = "TrentHub AutoFarm Gui",
 Color = Color3.fromRGB(102,51,153),
-Keybind = Enum.KeyCode.RightControl
+Keybind = Enum.KeyCode.B
 }
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local Tab1 = Window:CreateTab("AutoFarm")
+local Tab2 = Window:CreateTab("UI Settings")
 
 local Section1 = Tab1:CreateSection("Ancient Tree")
 local Section2 = Tab1:CreateSection("Old God")
@@ -16,6 +21,8 @@ local Section3 = Tab1:CreateSection("Wealthy God")
 local Section4 = Tab1:CreateSection("Hateful God")
 local Section5 = Tab1:CreateSection("Miserable God")
 local Section6 = Tab1:CreateSection("Teleports")
+local Section7 = Tab2:CreateSection("Gui Toggle")
+local Section8 = Tab2:CreateSection("Background")
 
 local Button1 = Section1:CreateButton("Chop Tree", function()
 _G.IfYouRunThisYouAreAIdiot = true
@@ -225,6 +232,14 @@ end
 stems()
 end)
 
+ local Toggle3 = Section7:CreateToggle("UI Toggle", nil, function(State)
+                  Window:Toggle(State)
+                end)
+                Toggle3:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+                  Config.Keybind = Enum.KeyCode[Key]
+                end)
+                Toggle3:SetState(true)
+
  local Dropdown3 = Section6:CreateDropdown("Teleports", {"Sun Island","Old God","Haven","Volcano"}, function(mob3)
                   if mob3 == "Sun Island" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
@@ -259,6 +274,8 @@ end)
                               break;
                           end
                       end end
+                      
+                      
                 
                 
                 if mob3 == "Volcano" then
@@ -271,3 +288,39 @@ end)
                               break;
                           end
                       end end end)
+
+                local Dropdown3 = Section8:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral"}, function(Name)
+                  if Name == "Default" then
+                      Window:SetBackground("5553946656")
+                  elseif Name == "Hearts" then
+                      Window:SetBackground("6073763717")
+                  elseif Name == "Abstract" then
+                      Window:SetBackground("6073743871")
+                  elseif Name == "Hexagon" then
+                      Window:SetBackground("6073628839")
+                  elseif Name == "Circles" then
+                      Window:SetBackground("6071579801")
+                  elseif Name == "Lace With Flowers" then
+                      Window:SetBackground("6071575925")
+                  elseif Name == "Floral" then
+                      Window:SetBackground("2151741365")
+                  end
+                end)
+                Dropdown3:SetOption("Default")
+                
+                local Colorpicker4 = Section8:CreateColorpicker("Color", function(Color)
+                  Window:SetBackgroundColor(Color)
+                end)
+                Colorpicker4:UpdateColor(Color3.new(0,0,0))
+                
+                local Slider3 = Section8:CreateSlider("Transparency",0,1,nil,false, function(Value)
+                  Window:SetBackgroundTransparency(Value)
+                end)
+                Slider3:SetValue(0)
+                
+                local Slider4 = Section8:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+                  Window:SetTileScale(Value)
+                end)
+                Slider4:SetValue(0.12)
+                
+            
