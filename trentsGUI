@@ -312,14 +312,8 @@ m.KeyDown:connect(function(k)
       end)
 end)
 
-Section5:CreateButton("Tp To Haven",function()
-    local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart
-    
-    playerHead.CFrame = CFrame.new(-1052.59045, -113.5, -669.415527, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-    end)
-
-Section5:CreateButton("Tp To Sun Island",function()
-local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+ local Dropdown3 = Section5:CreateDropdown("Teleports", {"Sun Island","Old God","Haven","Volcano"}, function(mob3)
+                  if mob3 == "Sun Island" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
                           if v.Name == "TouchInterest" and v.Parent then 
                               firetouchinterest(playerHead, v.Parent, 0)
@@ -330,11 +324,8 @@ local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       end
                 wait(1.5)
                 
-                playerHead.CFrame = CFrame.new(-765.80188, 310.448242, -1193.0903)
-end)
-
-Section5:CreateButton("Tp To Old God",function()
-local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                playerHead.CFrame = CFrame.new(-765.80188, 310.448242, -1193.0903) end
+                if mob3 == "Old God" then   local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
                           if v.Name == "TouchInterest" and v.Parent then 
                               firetouchinterest(playerHead, v.Parent, 0)
@@ -345,7 +336,7 @@ local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       end
                 wait(1.5)
                 
-                playerHead.CFrame = game:GetService("Workspace").Resources["Old God"].Eyes.CFrame 
+                playerHead.CFrame = game:GetService("Workspace").Resources["Old God"].Eyes.CFrame end
                 if mob3 == "Haven" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                       for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
                           if v.Name == "TouchInterest" and v.Parent then 
@@ -355,7 +346,18 @@ local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
                               break;
                           end
                       end end
-end)
+                
+                
+                if mob3 == "Volcano" then
+                  local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").HavenPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end end end)
 
 
 
