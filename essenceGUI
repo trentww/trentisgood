@@ -1,0 +1,273 @@
+
+local Config = {
+WindowName = "TrentHub AutoFarm Gui",
+Color = Color3.fromRGB(102,51,153),
+Keybind = Enum.KeyCode.RightControl
+}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("AutoFarm")
+
+local Section1 = Tab1:CreateSection("Ancient Tree")
+local Section2 = Tab1:CreateSection("Old God")
+local Section3 = Tab1:CreateSection("Wealthy God")
+local Section4 = Tab1:CreateSection("Hateful God")
+local Section5 = Tab1:CreateSection("Miserable God")
+local Section6 = Tab1:CreateSection("Teleports")
+
+local Button1 = Section1:CreateButton("Chop Tree", function()
+_G.IfYouRunThisYouAreAIdiot = true
+
+function dontbestupid()
+    while _G.IfYouRunThisYouAreAIdiot == true do
+local args = {
+    [1] = {
+        [1] = workspace.Resources["Ancient Tree"].Reference,
+        [2] = workspace.Resources["Ancient Tree"].Trunk
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+dontbestupid()
+end)
+
+local Button2 = Section1:CreateButton("Stop Chopping Tree", function()
+_G.IfYouRunThisYouAreAIdiot = false
+
+function dontbestupid()
+    while _G.IfYouRunThisYouAreAIdiot == true do
+local args = {
+    [1] = {
+        [1] = workspace.Resources["Ancient Tree"].Reference,
+        [2] = workspace.Resources["Ancient Tree"].Trunk
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+dontbestupid()
+end)
+
+local Button3 = Section2:CreateButton("Mine Old God", function()
+_G.Retard = true
+
+function stupid()
+    while _G.Retard == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Old God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+
+        wait()
+    end
+end
+stupid()
+end)
+
+local Button4 = Section2:CreateButton("Stop Mining", function()
+_G.Retard = false
+
+function stupid()
+    while _G.Retard == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Old God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+
+        wait()
+    end
+end
+stupid()
+end)
+
+local Button5 = Section3:CreateButton("Mine Wealthy God", function()
+_G.boom = true
+
+function bam()
+    while _G.boom == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Wealthy God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+
+
+        wait()
+    end
+end
+bam()
+end)
+
+local Button6 = Section3:CreateButton("Stop Mining", function()
+_G.boom = false
+
+function bam()
+    while _G.boom == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Wealthy God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+
+
+        wait()
+    end
+end
+bam()
+end)
+
+local Button7 = Section4:CreateButton("Mine Hateful God", function()
+_G.fart = true
+
+function shit()
+    while _G.fart == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Hateful God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+shit()
+end)
+
+local Button8 = Section4:CreateButton("Stop Mining", function()
+_G.fart = false
+
+function shit()
+    while _G.fart == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Hateful God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+shit()
+end)
+
+local Button9 = Section5:CreateButton("Mine Miserable God", function()
+_G.cum = true
+
+function stems()
+    while _G.cum == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Miserable God").Eyes,
+        [2] = workspace.Resources:FindFirstChild("Miserable God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+stems()
+end)
+
+local Button10 = Section5:CreateButton("Stop Mining", function()
+_G.cum = false
+
+function stems()
+    while _G.cum == true do
+
+local args = {
+    [1] = {
+        [1] = workspace.Resources:FindFirstChild("Miserable God").Eyes,
+        [2] = workspace.Resources:FindFirstChild("Miserable God").Totem
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(unpack(args))
+
+        wait()
+    end
+end
+stems()
+end)
+
+ local Dropdown3 = Section6:CreateDropdown("Teleports", {"Sun Island","Old God","Haven","Volcano"}, function(mob3)
+                  if mob3 == "Sun Island" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = CFrame.new(-765.80188, 310.448242, -1193.0903) end
+                if mob3 == "Old God" then   local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end
+                wait(1.5)
+                
+                playerHead.CFrame = game:GetService("Workspace").Resources["Old God"].Eyes.CFrame end
+                if mob3 == "Haven" then local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").LavaPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end end
+                
+                
+                if mob3 == "Volcano" then
+                  local playerHead = game.Players.LocalPlayer.Character.HumanoidRootPart;
+                      for i, v in pairs(game:GetService("Workspace").HavenPortal:GetDescendants()) do
+                          if v.Name == "TouchInterest" and v.Parent then 
+                              firetouchinterest(playerHead, v.Parent, 0)
+                              wait(0.1)
+                              firetouchinterest(playerHead, v.Parent, 1)
+                              break;
+                          end
+                      end end end)
